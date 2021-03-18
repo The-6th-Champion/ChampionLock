@@ -6,58 +6,33 @@
         xmlns:local="clr-namespace:ChampionLock"
         mc:Ignorable="d"
         Title="ChampionLock" Height="450" Width="800"
-        WindowStyle="None">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid Background="#223377" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0">
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    <Border CornerRadius="5" Background="#1E1E1E" BorderThickness="5" BorderBrush="#1e1e1e">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-            <Button x:Name="minimizeButton" 
-                    Click="minimizeButton_Click" 
-                    Content="x" 
-                    Grid.Column="13" 
-                    Background="#CC0000" 
-                    Foreground="#FFFFFF" 
-                    FontWeight="Bold" 
-                    FontSize="20"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
-            <Button x:Name="closeButton" 
-                    Click="closeButton_Click" 
-                    Content="x" 
-                    Grid.Column="13" 
-                    Background="#CC0000" 
-                    Foreground="#FFFFFF" 
-                    FontWeight="Bold" 
-                    FontSize="20"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+            <TextBlock x:Name="titleBox" Background="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" MouseLeftButtonDown="titleBox_MouseLeftButtonDown"/>
+            <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Ellipse x:Name="minimizeButton" ToolTip="Minimize" Fill="#ffcc00" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="minimizeApp" />
+                <Ellipse x:Name="closeButton" ToolTip="Close" Fill="Transparent" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="closeApp" />
+            </StackPanel>
+
+            <TextBlock Foreground="#1ae7ff" Text="ChampionLock" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
         </Grid>
-        <Grid Background="#000000" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1">
-            
-        </Grid>
-        
-    </Grid>
+    </Border>
 </Window>

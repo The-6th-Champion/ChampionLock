@@ -25,14 +25,33 @@ namespace ChampionLock
             InitializeComponent();
         }
 
-        private void closeButton_Click(object sender, RoutedEventArgs e)
+        private void closeApp(object sender, MouseButtonEventArgs e)
         {
-
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void minimizeButton_Click(object sender, RoutedEventArgs e)
+        private void minimizeApp(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                this.WindowState = WindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void titleBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
