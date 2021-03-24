@@ -8,7 +8,8 @@
         Title="ChampionLock" Height="450" Width="800"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="ChampionLock_icon3.ico">
     <Border CornerRadius="5" Background="#1E1E1E" BorderThickness="5" BorderBrush="#1e1e1e">
         <Grid>
             <Grid.RowDefinitions>
@@ -26,13 +27,66 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="titleBox" Background="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" MouseLeftButtonDown="titleBox_MouseLeftButtonDown"/>
+            <!-- Dragging -->
+            <TextBlock Cursor="Hand" x:Name="titleBox" Background="#00000000" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" MouseLeftButtonDown="titleBox_MouseLeftButtonDown"/>
+            
+            <!-- Window Controls -->
             <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Ellipse x:Name="minimizeButton" ToolTip="Minimize" Fill="#ffcc00" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="minimizeApp" />
-                <Ellipse x:Name="closeButton" ToolTip="Close" Fill="Transparent" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="closeApp" />
+                <Ellipse x:Name="closeButton" ToolTip="Close" Fill="#ff0000" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="closeApp" />
             </StackPanel>
-
-            <TextBlock Foreground="#1ae7ff" Text="ChampionLock" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
+            
+            <!-- App name-->
+            <TextBlock FontSize="30" FontFamily="Roboto" FontWeight="Bold" Foreground="#1ae7ff" Text="ChampionLock" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
+            
+            <!-- Blacklist Apps-->
+            <TextBlock Text="Blacklist Apps" FontSize="20" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Foreground="White"/>
+            
+            <!-- add to blacklist-->
+            <!--<TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="43" Margin="0,50,0,0" TextWrapping="Wrap"   
+                 Text="TextBox" VerticalAlignment="Top" Width="436" Name="FileNameTextBox"/>
+            <Button Content="Browse a file" 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="6" 
+                    Background="#9ef" 
+                    Foreground="#000000" 
+                    x:Name="BrowseButton" 
+                    HorizontalAlignment="Left"   
+                    Margin="455,49,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="121" 
+                    Click="BrowseButton_Click"   
+                    RenderTransformOrigin="1.047,0.821" 
+                    Height="40"/>
+            <TextBlock Grid.ColumnSpan="5" Grid.Row="1" Grid.Column="1" Foreground="#ffffff" HorizontalAlignment="Left" Height="282" Margin="30,96,0,0"   
+                   TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"  
+                   Width="703" Name="TextBlock1"/>-->
+            <Button Content="View Locked Apps"
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    Height="40"
+                    Grid.ColumnSpan="2"
+                    Foreground="Black"
+                    Background="#9effff"
+                    FontWeight="DemiBold"
+                    FontFamily="Roboto"
+                    FontSize="15"
+                    Click="ViewListButton_Click"
+                    x:Name="ViewListButton"/>
+            <Button Content="Force Kill Apps"
+                    Grid.Row="1" 
+                    Grid.Column="1"
+                    Height="40"
+                    Grid.ColumnSpan="2"
+                    Foreground="Black"
+                    Background="#9effff"
+                    FontWeight="DemiBold"
+                    FontFamily="Roboto"
+                    FontSize="15"
+                    Click="ForceKillbutton_Click"
+                    x:Name="ForceKillbutton"
+                    Margin="0,90,0,0"/>
         </Grid>
     </Border>
 </Window>
