@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <applist>
-	<app>
-		<name>1</name>
-		<path>121</path>
-	</app>
+  <app>
+    <name>discord</name>
+  </app>
+  <app>
+    <name>code</name>
+  </app>
+  <app>
+    <name>discord</name>
+  </app>
 </applist>

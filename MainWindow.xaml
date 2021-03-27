@@ -29,64 +29,192 @@
             </Grid.ColumnDefinitions>
             <!-- Dragging -->
             <TextBlock Cursor="Hand" x:Name="titleBox" Background="#00000000" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" MouseLeftButtonDown="titleBox_MouseLeftButtonDown"/>
-            
+
             <!-- Window Controls -->
             <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Ellipse x:Name="minimizeButton" ToolTip="Minimize" Fill="#ffcc00" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="minimizeApp" />
-                <Ellipse x:Name="closeButton" ToolTip="Close" Fill="#ff0000" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="closeApp" />
+                <Ellipse x:Name="closeButton" Cursor="No" ToolTip="Close" Fill="#ff0000" Width="20" Height="20" Margin="0,0,0,0" MouseLeftButtonDown="closeApp" />
             </StackPanel>
-            
+
             <!-- App name-->
             <TextBlock FontSize="30" FontFamily="Roboto" FontWeight="Bold" Foreground="#1ae7ff" Text="ChampionLock" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
-            
-            <!-- Blacklist Apps-->
-            <TextBlock Text="Blacklist Apps" FontSize="20" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Foreground="White"/>
-            
-            <!-- add to blacklist-->
-            <!--<TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="43" Margin="0,50,0,0" TextWrapping="Wrap"   
-                 Text="TextBox" VerticalAlignment="Top" Width="436" Name="FileNameTextBox"/>
-            <Button Content="Browse a file" 
-                    Grid.Row="1" 
-                    Grid.Column="0" 
-                    Grid.ColumnSpan="6" 
-                    Background="#9ef" 
-                    Foreground="#000000" 
-                    x:Name="BrowseButton" 
-                    HorizontalAlignment="Left"   
-                    Margin="455,49,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="121" 
-                    Click="BrowseButton_Click"   
-                    RenderTransformOrigin="1.047,0.821" 
-                    Height="40"/>
-            <TextBlock Grid.ColumnSpan="5" Grid.Row="1" Grid.Column="1" Foreground="#ffffff" HorizontalAlignment="Left" Height="282" Margin="30,96,0,0"   
-                   TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"  
-                   Width="703" Name="TextBlock1"/>-->
+
+            <!-- Controls -->
             <Button Content="View Locked Apps"
                     Grid.Row="1" 
-                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Margin="10,10,0,0"
+                    Grid.Column="0"
                     Height="40"
                     Grid.ColumnSpan="2"
                     Foreground="Black"
-                    Background="#9effff"
+                    Background="#9ef"
                     FontWeight="DemiBold"
                     FontFamily="Roboto"
                     FontSize="15"
                     Click="ViewListButton_Click"
                     x:Name="ViewListButton"/>
             <Button Content="Force Kill Apps"
-                    Grid.Row="1" 
-                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Margin="10,60,0,0"
+                    Grid.Column="0"
                     Height="40"
+                    Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Foreground="Black"
-                    Background="#9effff"
+                    Background="#9ef"
                     FontWeight="DemiBold"
                     FontFamily="Roboto"
                     FontSize="15"
                     Click="ForceKillbutton_Click"
-                    x:Name="ForceKillbutton"
-                    Margin="0,90,0,0"/>
+                    x:Name="ForceKillbutton"/>
+            <Button Content="Look at List"
+                    VerticalAlignment="Top"
+                    Margin="10,110,0,0"
+                    Grid.Column="0"
+                    Height="40"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Foreground="Black"
+                    Background="#9ef"
+                    FontWeight="DemiBold"
+                    FontFamily="Roboto"
+                    FontSize="15"
+                    Click="LookAtList_Click"
+                    x:Name="LookAtlist"/>
+
+            <!-- add to blacklist -->
+            <TextBlock Text="Add to Locked list"
+                       FontSize="20" 
+                       Grid.ColumnSpan="3"
+                       Grid.Column="4"
+                       Grid.Row="1"
+                       Foreground="White"
+                       Margin="10,0,0,0"/>
+            <TextBox Grid.Row="1" 
+                     Grid.Column="4" 
+                     Grid.ColumnSpan="5" 
+                     TextChanged="AppTextBox_TextChanged" 
+                     HorizontalAlignment="Left" 
+                     Height="40" 
+                     Margin="10,40,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="Type Here" 
+                     VerticalAlignment="Top" 
+                     Width="200" 
+                     x:Name="AppTextBox"
+                     FontSize="25"/>
+            <Button Content="Lock" 
+                    Grid.Row="1" 
+                    Grid.Column="4" 
+                    Grid.ColumnSpan="6" 
+                    Background="#9ef" 
+                    Foreground="#000000" 
+                    x:Name="LockButton" 
+                    HorizontalAlignment="Left"   
+                    Margin="215,40,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="121" 
+                    Click="LockButton_Click"   
+                    RenderTransformOrigin="1.047,0.821" 
+                    Height="40"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+            <TextBlock x:Name="DisplayAppBlock"
+                       Grid.ColumnSpan="4" 
+                       Grid.Row="1" 
+                       Grid.Column="4" 
+                       Foreground="#ffffff" 
+                       HorizontalAlignment="Left" 
+                       Height="50" 
+                       Margin="10,87,0,0" 
+                       TextWrapping="Wrap" 
+                       Text=" " 
+                       VerticalAlignment="Top" 
+                       Width="326"/>
+            <!-- Delete from blacklist -->
+            <TextBlock Text="Remove from Locked list"
+                       FontSize="20" 
+                       Grid.ColumnSpan="3"
+                       Grid.Column="4"
+                       Grid.Row="1"
+                       Foreground="White"
+                       Margin="10,150,0,0"/>
+            <TextBox Grid.Row="1" 
+                     Grid.Column="4" 
+                     Grid.ColumnSpan="5" 
+                     TextChanged="UnLockAppTextBox_TextChanged" 
+                     HorizontalAlignment="Left" 
+                     Height="40" 
+                     Margin="10,190,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="Type Here" 
+                     VerticalAlignment="Top" 
+                     Width="200" 
+                     x:Name="UnLockAppTextBox"
+                     FontSize="25"/>
+            <Button Content="Unlock" 
+                    Grid.Row="1" 
+                    Grid.Column="4" 
+                    Grid.ColumnSpan="6" 
+                    Background="#9ef" 
+                    Foreground="#000000" 
+                    x:Name="UnlockButton" 
+                    HorizontalAlignment="Left"      
+                    Margin="215,190,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="121" 
+                    Click="UnlockButton_Click"   
+                    RenderTransformOrigin="1.047,0.821" 
+                    Height="40"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+            <TextBlock x:Name="UnLockDisplayAppBlock"
+                       Grid.ColumnSpan="4" 
+                       Grid.Row="1" 
+                       Grid.Column="4" 
+                       Foreground="#ffffff" 
+                       HorizontalAlignment="Left" 
+                       Height="50" 
+                       Margin="10,237,0,0" 
+                       TextWrapping="Wrap" 
+                       Text=" " 
+                       VerticalAlignment="Top" 
+                       Width="326"/>
+            <PasswordBox Width="200"
+                         Height="30" 
+                         FontSize="20" 
+                         Grid.Column="3" 
+                         Grid.Row="0" 
+                         Foreground="White" 
+                         Background="#444" 
+                         Grid.ColumnSpan="3" 
+                         x:Name="PasswordInputBox"/>
+            <Button x:Name="PasswordEnterButton"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="5"
+                    Width="80"
+                    Grid.Row="0"
+                    Height="30"
+                    Margin="120,0,10,0"
+                    Content="Unlock"
+                    FontSize="20"
+                    Background="#9ef"
+                    FontWeight="DemiBold"
+                    Click="PasswordEnterButton_Click"/>
+            <TextBlock x:Name="ActiveBar" 
+                       Grid.Row="2" 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="8" 
+                       Background="#f00" 
+                       Text="The locker is now active" 
+                       TextAlignment="Center" 
+                       Foreground="Black" 
+                       FontSize="40"/>
         </Grid>
     </Border>
 </Window>
