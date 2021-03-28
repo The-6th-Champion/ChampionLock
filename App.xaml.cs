@@ -15,7 +15,7 @@ namespace ChampionLock
     /// </summary>
     public partial class App : Application
     {
-        private readonly Forms.NotifyIcon _notifyIcon;
+        public static Forms.NotifyIcon _notifyIcon;
         public App()
         {
             _notifyIcon = new Forms.NotifyIcon();
@@ -60,7 +60,13 @@ namespace ChampionLock
 
         private void OnStatusClicked(object sender, EventArgs e)
         {
-            MessageBox.Show("Lock is running", "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (ChampionLock.MainWindow.active == true) 
+            {
+                MessageBox.Show("Lock is running", "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else if (ChampionLock.MainWindow.active == false)
+            {
+                MessageBox.Show("Lock is not running.... switch it on", "Status", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         protected override void OnExit(ExitEventArgs e)
         {

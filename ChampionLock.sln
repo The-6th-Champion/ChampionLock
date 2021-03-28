@@ -5,16 +5,30 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChampionLock", "ChampionLock.csproj", "{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ChampionLockSetup", "..\ChampionLockSetup\ChampionLockSetup.wixproj", "{4C928098-35F6-4DC9-94D8-0D91B00FDC97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Debug|x86.Build.0 = Debug|Any CPU
 		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Release|x86.ActiveCfg = Release|Any CPU
+		{C55F13AB-CE4C-4F4E-A98E-A1C940309E61}.Release|x86.Build.0 = Release|Any CPU
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Debug|x86.ActiveCfg = Debug|x86
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Debug|x86.Build.0 = Debug|x86
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Release|Any CPU.ActiveCfg = Release|x86
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Release|x86.ActiveCfg = Release|x86
+		{4C928098-35F6-4DC9-94D8-0D91B00FDC97}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

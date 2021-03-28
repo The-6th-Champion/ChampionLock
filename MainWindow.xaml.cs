@@ -27,8 +27,9 @@ namespace ChampionLock
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string GlobalPassword = File.ReadAllText(@"data\password.txt").Replace("\n", "").Trim();
-        private bool active = true;
+        //public string GlobalPassword = File.ReadAllText(@"data\password.txt").Trim().Replace("\n","");
+        public static bool active = false;
+        public static string hi = "stupid";
         DispatcherTimer timer;
         // XML editiing
         public static void XmlLockFileAdder(string filename, string name)
@@ -107,7 +108,6 @@ namespace ChampionLock
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
             timer.Tick += timer_Tick;
-            timer.Start();
         }
 
         // XAML interactions
@@ -120,6 +120,7 @@ namespace ChampionLock
                 try
                 {
                     Close();
+                    this.closeButton.Cursor = Cursors.None;
                 }
                 catch (Exception ex)
                 {
@@ -199,9 +200,10 @@ namespace ChampionLock
         }
         private void PasswordEnterButton_Click(object sender, RoutedEventArgs e)
         {
+            // stop
             if (active == true)
             {
-                if (this.PasswordInputBox.Password == GlobalPassword)
+                if (this.PasswordInputBox.Password == File.ReadAllText(@"data\password.txt").Trim().Replace("\n", ""))
                 {
                     active = false;
                     this.PasswordEnterButton.Content = "Lock";
@@ -215,20 +217,25 @@ namespace ChampionLock
                     MessageBox.Show("Password is incorrect", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            // start
             else if (active == false)
             {
-                if (this.PasswordInputBox.Password == GlobalPassword)
+                if (this.PasswordInputBox.Password != string.Empty && this.PasswordInputBox.Password.Length >= 4)
                 {
+                    string pass = this.PasswordInputBox.Password.ToString();
+                    File.WriteAllText(@"data\password.txt", pass);
                     active = true;
                     this.PasswordEnterButton.Content = "Unlock";
                     this.ActiveBar.Background = new SolidColorBrush(Colors.Red);
                     this.ActiveBar.Text = "The locker is now active";
                     this.PasswordInputBox.Password = "";
                     timer.Start();
-                }
-                else
+                } else if (this.PasswordInputBox.Password == string.Empty)
                 {
-                    MessageBox.Show("Password is incorrect", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Please put a password!", "Password Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                } else if (this.PasswordInputBox.Password.Length < 4)
+                {
+                    MessageBox.Show("Pleas emake your password 4 or more characters", "Password Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }

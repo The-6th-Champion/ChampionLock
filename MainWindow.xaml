@@ -33,7 +33,7 @@
             <!-- Window Controls -->
             <StackPanel Grid.Row="0" Grid.Column="7" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Ellipse x:Name="minimizeButton" ToolTip="Minimize" Fill="#ffcc00" Width="15" Height="15" Margin="0,5,5,5" MouseLeftButtonDown="minimizeApp" />
-                <Ellipse x:Name="closeButton" Cursor="No" ToolTip="Close" Fill="#ff0000" Width="20" Height="20" Margin="0,0,0,0" MouseLeftButtonDown="closeApp" />
+                <Ellipse x:Name="closeButton" Cursor="Arrow" ToolTip="Close" Fill="#ff0000" Width="20" Height="20" Margin="0,0,0,0" MouseLeftButtonDown="closeApp" />
             </StackPanel>
 
             <!-- App name-->
@@ -201,7 +201,7 @@
                     Grid.Row="0"
                     Height="30"
                     Margin="120,0,10,0"
-                    Content="Unlock"
+                    Content="Lock"
                     FontSize="20"
                     Background="#9ef"
                     FontWeight="DemiBold"
@@ -210,8 +210,8 @@
                        Grid.Row="2" 
                        Grid.Column="0" 
                        Grid.ColumnSpan="8" 
-                       Background="#f00" 
-                       Text="The locker is now active" 
+                       Background="#9ef" 
+                       Text="The locker is not active" 
                        TextAlignment="Center" 
                        Foreground="Black" 
                        FontSize="40"/>
